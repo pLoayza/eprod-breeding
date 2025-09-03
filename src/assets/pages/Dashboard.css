@@ -1,0 +1,598 @@
+/* Dashboard.css */
+.dashboard {
+  min-height: 100vh;
+  background: #f8fafc;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.dashboard-header {
+  background: white;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.back-button {
+  background: #64748b;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.back-button:hover {
+  background: #475569;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  color: #1e293b;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.header-date {
+  color: #64748b;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.dashboard-layout {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  width: 100%;
+  height: calc(100vh - 60px);
+}
+
+/* Sidebar de tareas */
+.tasks-sidebar {
+  background: white;
+  border-right: 1px solid #e2e8f0;
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+.sidebar-header h2 {
+  margin: 0;
+  color: #1e293b;
+  font-size: 1.3rem;
+}
+
+.add-task-btn {
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.add-task-btn:hover {
+  background: #059669;
+}
+
+.task-group {
+  margin-bottom: 2rem;
+}
+
+.task-group-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  border-left: 4px solid;
+}
+
+.task-group:nth-child(2) .task-group-header {
+  border-left-color: #3498db;
+}
+
+.task-group:nth-child(3) .task-group-header {
+  border-left-color: #e74c3c;
+}
+
+.task-group:nth-child(4) .task-group-header {
+  border-left-color: #2ecc71;
+}
+
+.task-type-icon {
+  font-size: 1.2rem;
+}
+
+.task-group-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  flex: 1;
+}
+
+.task-count {
+  color: #64748b;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.no-tasks {
+  color: #94a3b8;
+  font-style: italic;
+  text-align: center;
+  padding: 1rem;
+  margin: 0;
+}
+
+.task-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: #f8fafc;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s;
+}
+
+.task-item:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-color: #cbd5e1;
+}
+
+.task-item.completed {
+  opacity: 0.6;
+  background: #f1f5f9;
+}
+
+.task-checkbox {
+  margin-top: 2px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.task-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.task-title {
+  font-weight: 500;
+  color: #1e293b;
+  line-height: 1.4;
+}
+
+.task-title.strikethrough {
+  text-decoration: line-through;
+  color: #64748b;
+}
+
+.task-date-small {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+/* Calendario principal */
+.calendar-main {
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+.calendar-container {
+  max-width: 100%;
+}
+
+.calendar-header {
+  margin-bottom: 1.5rem;
+}
+
+.calendar-header h2 {
+  margin: 0;
+  color: #1e293b;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  margin-bottom: 1px;
+}
+
+.weekday {
+  background: #475569;
+  color: white;
+  padding: 0.75rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  background: #e2e8f0;
+  border: 1px solid #e2e8f0;
+}
+
+.calendar-day {
+  background: white;
+  min-height: 120px;
+  padding: 8px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar-day:hover {
+  background: #f8fafc;
+}
+
+.calendar-day.empty {
+  background: #f1f5f9;
+  cursor: default;
+}
+
+.calendar-day.today {
+  background: #dbeafe;
+  border: 2px solid #3b82f6;
+}
+
+.calendar-day.selected {
+  background: #fef3c7;
+  border: 2px solid #f59e0b;
+}
+
+.day-number {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.calendar-day.today .day-number {
+  color: #1d4ed8;
+}
+
+.task-indicators {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: auto;
+}
+
+.task-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.task-dot.completed {
+  opacity: 0.4;
+  border: 1px solid #94a3b8;
+}
+
+.task-more {
+  font-size: 0.7rem;
+  color: #64748b;
+  font-weight: 500;
+  background: #e2e8f0;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.day-tasks-popup {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  padding: 0.75rem;
+  z-index: 10;
+  margin-top: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.popup-task {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 0.25rem;
+}
+
+.popup-task:last-child {
+  margin-bottom: 0;
+}
+
+.popup-task:hover {
+  background: #f8fafc;
+}
+
+.popup-task-icon {
+  font-size: 1rem;
+}
+
+.popup-task-title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.popup-task-title.completed {
+  text-decoration: line-through;
+  color: #64748b;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .dashboard-layout {
+    grid-template-columns: 300px 1fr;
+  }
+  
+  .tasks-sidebar {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: 300px 1fr;
+  }
+  
+  .tasks-sidebar {
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+    height: 300px;
+  }
+  
+  .calendar-day {
+    min-height: 80px;
+  }
+  
+  .dashboard-header {
+    padding: 1rem;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .calendar-grid {
+    gap: 0;
+  }
+  
+  .calendar-day {
+    min-height: 60px;
+    padding: 4px;
+  }
+  
+  .day-number {
+    font-size: 0.9rem;
+  }
+  
+  .task-dot {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+/* REGLA FINAL PARA FORZAR FONDO OSCURO EN TODO EL CALENDARIO */
+.dashboard .calendar-main,
+.dashboard .calendar-container,
+.dashboard .calendar-grid,
+.dashboard .calendar-day {
+  background: #1e293b !important;
+}
+
+.dashboard .calendar-day.empty {
+  background: #0f172a !important;
+}
+
+.dashboard .calendar-day.today {
+  background: #1e40af !important;
+}
+
+.dashboard .calendar-day.selected {
+  background: #92400e !important;
+}
+
+/* MODAL PARA AGREGAR TAREA */
+.task-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.task-modal {
+  background: #1e293b;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  border: 1px solid #334155;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.task-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem 1rem 2rem;
+  border-bottom: 1px solid #334155;
+}
+
+.task-modal-header h3 {
+  margin: 0;
+  color: #f1f5f9;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.modal-close-btn {
+  background: none !important;
+  border: none !important;
+  color: #94a3b8 !important;
+  font-size: 1.5rem !important;
+  cursor: pointer;
+  padding: 0.5rem !important;
+  border-radius: 50% !important;
+  width: 40px !important;
+  height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s !important;
+}
+
+.modal-close-btn:hover {
+  background: #334155 !important;
+  color: #f1f5f9 !important;
+}
+
+.task-form {
+  padding: 2rem;
+}
+
+.form-field {
+  margin-bottom: 1.5rem;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #e2e8f0 !important;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.form-field input,
+.form-field select {
+  width: 100% !important;
+  padding: 0.75rem !important;
+  background: #0f172a !important;
+  border: 1px solid #334155 !important;
+  border-radius: 6px !important;
+  color: #e2e8f0 !important;
+  font-size: 1rem !important;
+  transition: all 0.2s !important;
+  font-family: inherit !important;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  outline: none !important;
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2) !important;
+}
+
+.form-field input::placeholder {
+  color: #64748b !important;
+}
+
+.form-field select option {
+  background: #1e293b !important;
+  color: #e2e8f0 !important;
+  padding: 0.5rem !important;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+.btn-cancel,
+.btn-save {
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 6px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.2s !important;
+  border: none !important;
+  font-size: 0.95rem !important;
+}
+
+.btn-cancel {
+  background: #374151 !important;
+  color: #d1d5db !important;
+}
+
+.btn-cancel:hover {
+  background: #4b5563 !important;
+  color: #f3f4f6 !important;
+}
+
+.btn-save {
+  background: #3b82f6 !important;
+  color: white !important;
+}
+
+.btn-save:hover:not(:disabled) {
+  background: #2563eb !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+}
+
+.btn-save:disabled {
+  background: #64748b !important;
+  color: #94a3b8 !important;
+  cursor: not-allowed !important;
+  opacity: 0.6;
+}
