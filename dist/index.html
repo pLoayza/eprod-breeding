@@ -7,8 +7,19 @@
     <title>Vite + React + TS</title>
     <script type="module" crossorigin src="/assets/index-BfRuthf3.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-yd_lXGIs.css">
+    <script>
+  // Check if there's a redirect from a 404 page
+  (function(){
+    var redirect = sessionStorage.redirect;
+    delete sessionStorage.redirect;
+    if (redirect && redirect != location.href) {
+      history.replaceState(null, null, redirect);
+    }
+  })();
+</script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"></div>
+
   </body>
 </html>
